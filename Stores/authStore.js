@@ -1,36 +1,63 @@
 import { makeAutoObservable } from "mobx";
 import api from "./api";
+import jwtDecode from "jwt-decode";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 class AuthStore {
-  constructor() {
-    makeAutoObservable(this);
-  }
   user = null;
-
+  constructor() {
+    makeAutoObservable(this, {});
+  }
+  //set a token to user
   setUser = async (token) => {
-    await AsyncStorage.setItem("token", token);
-    this.user = decode(token);
-    api.defaults.headers.common.Authorization = `Beare ${token}`;
+    await AsyncStorage.setItem("myToken", token);
+    this.user = jwtDecode(token);
+    api.defaults.headers.common.Authorization = `Bearer ${token}`;
   };
+  //a function that will allow user to sign up
 
-  signUp = async (user, navigation) => {
+  signUp = async (user) => {
     try {
-      const res = await api.post("/signup", user);
-      this.setUser(res.data.token);
-      navigation.navigate("Home");
+      const response = await api.post("/signup", user);
+      this.setUser(response.data.token);
+      console.log(user);
     } catch (error) {
+      //to show us a error if try didnt work
       console.log(error);
     }
   };
 
-  signIn = async (user, navigation) => {
+  signIn = async (user) => {
     try {
-      const res = await api.post("/signin", user);
-      this.setUser(res.data.token);
-      navigation.navigate("Trips");
+      const response = await api.post("/signin", user);
+      this.setUser(response.data.token);
     } catch (error) {
-      console.log(error);
+      alert(error);
+    }
+  };
+  //a function that will allow user to log out from his user
+  logout = async () => {
+    this.user = null;
+    delete api.defaults.headers.common.Authorization;
+    await AsyncStorage.removeItem("myToken");
+  };
+
+  //a function that will check if the token still didnt expire or the user didnt log out, then user still signed in
+  checkForToken = async () => {
+    const token = await AsyncStorage.getItem("myToken");
+    if (token) {
+      const currentTime = Date.now();
+      let user = jwtDecode(token);
+      if (user.exp > currentTime) {
+        this.setUser(token);
+      } else {
+        alert("You're session has expired'. Please sign in again!");
+        this.logout();
+      }
     }
   };
 }
+const authStore = new AuthStore();
+authStore.checkForToken();
+
+export default authStore;

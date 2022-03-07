@@ -1,4 +1,4 @@
-import { observable, action, makeObservable, makeAutoObservable } from "mobx";
+import { makeAutoObservable } from "mobx";
 // import axios from "axios";
 import api from "./api";
 
