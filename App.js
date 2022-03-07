@@ -1,17 +1,14 @@
 import { NativeBaseProvider } from "native-base";
 import { NavigationContainer } from "@react-navigation/native";
 import { StyleSheet } from "react-native";
-import { createStackNavigator } from "@react-navigation/stack";
 import StackNavigation from "./Component/Navigation/StackNavigation";
-// import { StyleSheet, Text, View } from "react-native";
+//import BottomTab from "./components/Navigation/BottomTab";
 
 export default function App() {
   return (
-    // <View style={styles.container}>
-    //   <Text>Open up App.js to start working on your app!</Text>
-    // </View>
     <NativeBaseProvider>
       <NavigationContainer>
+        {/* <BottomTab />*/}
         <StackNavigation />
       </NavigationContainer>
     </NativeBaseProvider>
