@@ -16,7 +16,7 @@ import {
 } from "react-native";
 
 import { observer } from "mobx-react-lite";
-import authStore from "../../stores/authStore";
+import authStore from "../../Stores/authStore";
 
 const { width: WIDTH } = Dimensions.get("window");
 const Home = () => {
@@ -119,7 +119,7 @@ const styles = StyleSheet.create({
   },
   logoText: {
     color: "black",
-    fontWeight: "750",
+    fontWeight: 700,
     fontSize: 40,
 
     opacity: 0.5,
