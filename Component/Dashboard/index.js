@@ -1,5 +1,6 @@
 import { StyleSheet, Text, View } from "react-native";
 import React from "react";
+import { observer } from "mobx-react";
 
 const Dashboard = () => {
   return (
@@ -9,6 +10,6 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;
+export default observer(Dashboard);
 
 const styles = StyleSheet.create({});
