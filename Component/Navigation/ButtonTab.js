@@ -3,7 +3,8 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { observer } from "mobx-react";
 import Signin from "../Auth/SignIn";
 import Signup from "../Auth/SignUp";
-import Dashboard from "../Dashboard.js";
+import Dashboard from "../Dashboard";
+import authStore from "../../Stores/authStore";
 
 const Tab = createBottomTabNavigator();
 
