@@ -37,7 +37,7 @@ const Home = () => {
   return (
     <ImageBackground
       source={{
-        uri: "https://cutewallpaper.org/21/white-ios-wallpaper/FREEIOS7-desktop-white-parallax-HD-iPhone-iPad-wallpaper.jpg",
+        uri: "https://www.mwallpapers.com/download-image/38440/1080x1921",
       }}
       style={styles.backgroundContainer}
     >
