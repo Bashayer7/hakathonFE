@@ -24,6 +24,7 @@ const Home = () => {
     username: "",
     password: "",
   });
+
   const handlesubmit = () => {
     console.log(user);
     authStore.signUp(user);
