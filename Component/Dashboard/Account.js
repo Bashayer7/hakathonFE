@@ -1,7 +1,6 @@
 import { StyleSheet, Text, View } from "react-native";
 import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { TabActions } from "@react-navigation/native";
 import Home from "../Home";
 import DashboardCart from "./DashboardCart";
 import Payment from "./Payment";
