@@ -3,7 +3,6 @@ import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { TabActions } from "@react-navigation/native";
 import Home from "../Home";
-import Amount from "./Amount";
 import DashboardCart from "./DashboardCart";
 import Payment from "./Payment";
 import Benficires from "./Benficires";
