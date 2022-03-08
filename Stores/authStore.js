@@ -32,7 +32,8 @@ class AuthStore {
       const response = await api.post("/signin", user);
       this.setUser(response.data.token);
     } catch (error) {
-      alert(error);
+      alert(error.message + "error in auth");
+      console.log(error.message + "authStore");
     }
   };
   //a function that will allow user to log out from his user

@@ -25,7 +25,7 @@ const BottomTab = () => {
         name="SignUp"
         component={Signup}
         options={{
-          tabBarLabel: "Sign in",
+          tabBarLabel: "Sign up",
           tabBarIcon: ({ color, size }) => <AppIcon name="app-registration" />,
         }}
       />

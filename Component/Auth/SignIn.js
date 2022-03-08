@@ -40,7 +40,7 @@ const Home = () => {
       }}
       style={styles.backgroundContainer}
     >
-      ` <Text style={styles.logoText}>Banky</Text>`
+      <Text style={styles.logoText}>Banky</Text>
       <View style={styles.logoContainer}>
         <Image
           source={{
