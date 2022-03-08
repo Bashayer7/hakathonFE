@@ -1,15 +1,13 @@
 import { NativeBaseProvider } from "native-base";
 import { NavigationContainer } from "@react-navigation/native";
 import { StyleSheet } from "react-native";
-import StackNavigation from "./Component/Navigation/StackNavigation";
-//import BottomTab from "./components/Navigation/BottomTab";
+import BottomTab from "./Component/Navigation/BottomTab";
 
 export default function App() {
   return (
     <NativeBaseProvider>
       <NavigationContainer>
-        {/* <BottomTab />*/}
-        <StackNavigation />
+        <BottomTab />
       </NavigationContainer>
     </NativeBaseProvider>
   );
