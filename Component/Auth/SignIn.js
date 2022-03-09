@@ -54,13 +54,13 @@ const Home = () => {
           style={styles.inputIcon}
           name={"ios-person-outline"}
           size={28}
-          color={"rgba(255,255,255,0.7)"}
+          color={"black"}
         />
         <TextInput
           style={styles.input}
           placeholder={"Username"}
           onChangeText={(value) => setUser({ ...user, username: value })}
-          placeholderTextColor={"rgba(255,255,255,07)"}
+          placeholderTextColor={"black"}
           underlineColorAndroid={"transparent"}
         />
       </View>
@@ -71,7 +71,7 @@ const Home = () => {
             style={styles.inputIcon}
             name={"lock"}
             size={28}
-            color={"rgba(255,255,255,0.7)"}
+            color={"black"}
           />
         </TouchableOpacity>
 
@@ -80,16 +80,12 @@ const Home = () => {
           placeholder={"Password"}
           onChangeText={(value) => setUser({ ...user, password: value })}
           secureTextEntry={eyeCon}
-          placeholderTextColor={"rgba(255,255,255,07)"}
+          placeholderTextColor={"black"}
           underlineColorAndroid={"transparent"}
         />
 
         <TouchableOpacity style={styles.btnEye} onPress={handleEye}>
-          <Icon
-            name={"ios-eye-outline"}
-            size={26}
-            color={"rgba(255,255,255,0.7)"}
-          />
+          <Icon name={"ios-eye-outline"} size={26} color={"black"} />
         </TouchableOpacity>
       </View>
       <TouchableOpacity onPress={handlesubmit} style={styles.btnLogin}>
@@ -129,11 +125,13 @@ const styles = StyleSheet.create({
     borderRadius: 45,
     borderColor: "grey",
     borderWidth: 1,
-    fontSize: 16,
+    fontSize: 20,
+    fontWeight: 550,
     paddingLeft: 45,
-    backgroundColor: "transparent",
-    color: "rgba(255,255,255,0.7)",
+    backgroundColor: "white",
+    color: "black",
     marginHorizontal: 25,
+    opacity: 0.4,
   },
   inputIcon: {
     position: "absolute",
