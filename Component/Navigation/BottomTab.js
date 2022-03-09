@@ -6,6 +6,8 @@ import Signup from "../Auth/SignUp";
 import authStore from "../../Stores/authStore";
 import Icon from "react-native-vector-icons/FontAwesome";
 import AppIcon from "react-native-vector-icons/MaterialIcons";
+import { Text } from "react-native";
+import Account from "../Dashboard/Account";
 
 const Tab = createBottomTabNavigator();
 
@@ -75,7 +77,16 @@ const BottomTab = () => {
       activeColor="#f0edf6"
       inactiveColor="#3e2465"
       barStyle={{ backgroundColor: "#694fad" }}
-    ></Tab.Navigator>
+    >
+      <Tab.Screen
+        name="Account"
+        component={Account}
+        // options={{
+        //   tabBarLabel: "Sign up",
+        //   tabBarIcon: ({ color, size }) => <AppIcon name="app-registration" />,
+        // }}
+      />
+    </Tab.Navigator>
   );
 };
 

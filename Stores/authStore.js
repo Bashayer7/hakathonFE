@@ -30,6 +30,7 @@ class AuthStore {
   signIn = async (user) => {
     try {
       const response = await api.post("/signin", user);
+      console.log(response.data);
       this.setUser(response.data.token);
     } catch (error) {
       alert(error.message + "error in auth");
