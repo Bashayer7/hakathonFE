@@ -95,6 +95,7 @@ const Home = () => {
       <TouchableOpacity onPress={handlesubmit} style={styles.btnLogin}>
         <Text style={styles.text}>Login</Text>
       </TouchableOpacity>
+      {authStore.user ? <Text>hello</Text> : <Text>hello there</Text>}
     </ImageBackground>
   );
 };
