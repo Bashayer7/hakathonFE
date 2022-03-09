@@ -1,15 +1,17 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, ScrollView } from "react-native";
 import React from "react";
+import Account from "./Account";
+import data from "./data";
 
 const DashboardCart = ({ navigation }) => {
-  const DashboardCart = authStore.data.map((data) => (
-    <Item key={data._id} data={data} navigation={navigation} />
+  const Dashb = data.map((data) => (
+    <Account key={data._id} data={data} navigation={navigation} />
   ));
-  console.log(DashboardCart);
+  console.log(Dashb);
   return (
     <View>
       <Text style={styles.title}>My Dashboard</Text>
-      <ScrollView style={styles.container}>{DashboardCart}</ScrollView>
+      <ScrollView style={styles.container}>{Dashb}</ScrollView>
     </View>
   );
 };

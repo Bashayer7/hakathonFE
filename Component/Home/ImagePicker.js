@@ -1,127 +1,63 @@
-import React from "react";
+import { StyleSheet, Text, View, Platform } from "react-native";
+import React, { useState } from "react";
+import { launchImageLibrary } from "react-native-image-picker";
 
-import {
-  StyleSheet,
-  Text,
-  View,
-  TouchableOpacity,
-  Button,
-  Image,
-} from "react-native";
+const createFormData = (photo, body = {}) => {
+  const data = new FormData();
 
-import ImagePicker from "react-native-image-picker";
+  data.append("photo", {
+    name: photo.fileName,
+    type: photo.type,
+    uri: Platform.OS === "ios" ? photo.uri.replace("file://", "") : photo.uri,
+  });
 
-export default class App extends React.Component {
-  constructor(props) {
-    super(props);
+  Object.keys(body).forEach((key) => {
+    data.append(key, body[key]);
+  });
 
-    this.state = {
-      resourcePath: {},
-    };
-  }
+  return data;
+};
+const ImagePicker = () => {
+  const [photo, setPhoto] = useState(null);
 
-  selectFile = () => {
-    var options = {
-      title: "Select Image",
-
-      customButtons: [
-        {
-          name: "customOptionKey",
-
-          title: "Choose file from Custom Option",
-        },
-      ],
-
-      storageOptions: {
-        skipBackup: true,
-
-        path: "images",
-      },
-    };
-
-    ImagePicker.showImagePicker(options, (res) => {
-      console.log("Response = ", res);
-
-      if (res.didCancel) {
-        console.log("User cancelled image picker");
-      } else if (res.error) {
-        console.log("ImagePicker Error: ", res.error);
-      } else if (res.customButton) {
-        console.log("User tapped custom button: ", res.customButton);
-
-        alert(res.customButton);
-      } else {
-        let source = res;
-
-        this.setState({
-          resourcePath: source,
-        });
+  const handleChoosePhoto = () => {
+    launchImageLibrary({ noData: true }, (response) => {
+      // console.log(response);
+      if (response) {
+        setPhoto(response);
       }
     });
   };
-}
-{
+
+  const handleUploadPhoto = () => {
+    fetch(`${SERVER_URL}/api/upload`, {
+      method: "POST",
+      body: createFormData(photo, { userId: "123" }),
+    })
+      .then((response) => response.json())
+      .then((response) => {
+        console.log("response", response);
+      })
+      .catch((error) => {
+        console.log("error", error);
+      });
+  };
   return (
-    <View style={styles.container}>
-      <View style={styles.container}>
-        <Image
-          source={{
-            uri: "data:image/jpeg;base64," + this.state.resourcePath.data,
-          }}
-          style={{ width: 100, height: 100 }}
-        />
-
-        <Image
-          source={{ uri: this.state.resourcePath.uri }}
-          style={{ width: 200, height: 200 }}
-        />
-
-        <Text style={{ alignItems: "center" }}>
-          {this.state.resourcePath.uri}
-        </Text>
-
-        <TouchableOpacity onPress={this.selectFile} style={styles.button}>
-          <Text style={styles.buttonText}>Select File</Text>
-        </TouchableOpacity>
-      </View>
+    <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+      {photo && (
+        <>
+          <Image
+            source={{ uri: photo.uri }}
+            style={{ width: 300, height: 300 }}
+          />
+          <Button title="Upload Photo" onPress={handleUploadPhoto} />
+        </>
+      )}
+      <Button title="Choose Photo" onPress={handleChoosePhoto} />
     </View>
   );
-}
+};
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
+export default ImagePicker;
 
-    padding: 30,
-
-    alignItems: "center",
-
-    justifyContent: "center",
-
-    backgroundColor: "#fff",
-  },
-
-  button: {
-    width: 250,
-
-    height: 60,
-
-    backgroundColor: "#3740ff",
-
-    alignItems: "center",
-
-    justifyContent: "center",
-
-    borderRadius: 4,
-
-    marginBottom: 12,
-  },
-
-  buttonText: {
-    textAlign: "center",
-
-    fontSize: 15,
-
-    color: "#fff",
-  },
-});
+const styles = StyleSheet.create({});
