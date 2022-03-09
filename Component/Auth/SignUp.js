@@ -1,8 +1,5 @@
 //Icons
 import React, { useState } from "react";
-import Icon from "react-native-vector-icons/Ionicons";
-import IconLock from "react-native-vector-icons/Feather";
-
 // react native import
 import {
   StyleSheet,
@@ -20,6 +17,11 @@ import authStore from "../../Stores/authStore";
 
 const { width: WIDTH } = Dimensions.get("window");
 const Home = () => {
+  let max = 5525109999999999;
+  let min = 5525100000000001;
+  let a = max - min + 1;
+  let b = Math.random() * a;
+  let accountRandomNumber = Math.floor(b) + min;
   const [user, setUser] = useState({
     username: "",
     password: "",
@@ -28,11 +30,15 @@ const Home = () => {
     email: "",
     civilId: "",
     phonenumber: "",
+<<<<<<< HEAD
     IBAN: "",
+=======
+    account: accountRandomNumber,
+    amount: 100,
+>>>>>>> account
   });
 
   const handlesubmit = () => {
-    console.log(user);
     authStore.signUp(user);
     // \\call sign in functioon from auth store
   };
@@ -57,47 +63,68 @@ const Home = () => {
         />
       </View>
       <View style={styles.logoContainer}>
-        <Icon
-          style={styles.inputIcon}
-          name={"ios-person-outline"}
-          size={28}
-          color={"rgba(255,255,255,0.7)"}
+        <TextInput
+          style={styles.input}
+          placeholder={"firstname"}
+          onChangeText={(value) => setUser({ ...user, firstname: value })}
+          placeholderTextColor={"black"}
+          underlineColorAndroid={"transparent"}
         />
+      </View>
+      <View style={styles.logoContainer}>
+        <TextInput
+          style={styles.input}
+          placeholder={"last name"}
+          onChangeText={(value) => setUser({ ...user, lastname: value })}
+          placeholderTextColor={"black"}
+          underlineColorAndroid={"transparent"}
+        />
+      </View>
+      <View style={styles.logoContainer}>
         <TextInput
           style={styles.input}
           placeholder={"Username"}
           onChangeText={(value) => setUser({ ...user, username: value })}
-          placeholderTextColor={"rgba(255,255,255,07)"}
+          placeholderTextColor={"black"}
           underlineColorAndroid={"transparent"}
         />
       </View>
       <View>
-        <TouchableOpacity>
-          <IconLock
-            onPress={handlesubmit}
-            style={styles.inputIcon}
-            name={"lock"}
-            size={28}
-            color={"rgba(255,255,255,0.7)"}
-          />
-        </TouchableOpacity>
-
         <TextInput
           style={styles.input}
           placeholder={"Password"}
           onChangeText={(value) => setUser({ ...user, password: value })}
           secureTextEntry={eyeCon}
-          placeholderTextColor={"rgba(255,255,255,07)"}
+          placeholderTextColor={"black"}
           underlineColorAndroid={"transparent"}
         />
-
-        <TouchableOpacity style={styles.btnEye}>
-          <Icon
-            name={"ios-eye-outline"}
-            size={26}
-            color={"rgba(255,255,255,0.7)"}
-          />
-        </TouchableOpacity>
+      </View>
+      <View style={styles.logoContainer}>
+        <TextInput
+          style={styles.input}
+          placeholder={"Civil ID"}
+          onChangeText={(value) => setUser({ ...user, civilId: value })}
+          placeholderTextColor={"black"}
+          underlineColorAndroid={"transparent"}
+        />
+      </View>
+      <View style={styles.logoContainer}>
+        <TextInput
+          style={styles.input}
+          placeholder={"email"}
+          onChangeText={(value) => setUser({ ...user, email: value })}
+          placeholderTextColor={"black"}
+          underlineColorAndroid={"transparent"}
+        />
+      </View>
+      <View style={styles.logoContainer}>
+        <TextInput
+          style={styles.input}
+          placeholder={"Phone Number"}
+          onChangeText={(value) => setUser({ ...user, phonenumber: value })}
+          placeholderTextColor={"black"}
+          underlineColorAndroid={"transparent"}
+        />
       </View>
       <TouchableOpacity onPress={handlesubmit} style={styles.btnLogin}>
         <Text style={styles.text}>Register</Text>
@@ -127,7 +154,7 @@ const styles = StyleSheet.create({
     color: "black",
     fontWeight: 700,
     fontSize: 40,
-
+    marginBottom: 10,
     opacity: 0.5,
   },
   input: {
@@ -136,11 +163,13 @@ const styles = StyleSheet.create({
     borderRadius: 45,
     borderColor: "grey",
     borderWidth: 1,
-    fontSize: 16,
+    fontSize: 20,
+    fontWeight: 550,
     paddingLeft: 45,
-    backgroundColor: "transparent",
-    color: "rgba(255,255,255,0.7)",
+    backgroundColor: "white",
+    color: "black",
     marginHorizontal: 25,
+    opacity: 0.5,
   },
   inputIcon: {
     position: "absolute",
