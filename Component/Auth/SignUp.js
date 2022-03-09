@@ -30,12 +30,8 @@ const Home = () => {
     email: "",
     civilId: "",
     phonenumber: "",
-<<<<<<< HEAD
-    IBAN: "",
-=======
     account: accountRandomNumber,
     amount: 100,
->>>>>>> account
   });
 
   const handlesubmit = () => {
