@@ -12,7 +12,7 @@ import {
   VStack,
 } from "native-base";
 // import beneficiaryStore
-import * as ImagePicker from "expo-image-picker";
+// import * as ImagePicker from "expo-image-picker";
 const CreateBeneficiary = ({ navigation }) => {
   // const [image, setImage] = useState(null);
   const [beneficiary, setBeneficiary] = useState({
@@ -70,4 +70,4 @@ const CreateBeneficiary = ({ navigation }) => {
   );
 };
 
-export default Beneficiary;
+export default CreateBeneficiary;

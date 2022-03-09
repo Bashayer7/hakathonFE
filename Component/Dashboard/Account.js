@@ -1,7 +1,14 @@
 import { StyleSheet, Text, View, Image } from "react-native";
-import React from "react";
+import React, { useState } from "react";
 
-const Account = () => {
+const Account = ({ navigation }) => {
+  const [Acc, setAcc] = useState({
+    name: "",
+    IBAN: "",
+  });
+  const handleCreate = () => {
+    AccountStore.createAccount(IBAN, navigation);
+  };
   return (
     <View>
       <Text>this is account Screen</Text>

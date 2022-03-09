@@ -1,7 +1,7 @@
 import React from "react";
 import { observer } from "mobx-react";
 import { StyleSheet, Text, View } from "react-native";
-import BeneficiaryStore from "../../stores/tripStore";
+
 // import TripItem from "./TripItem";
 import { ScrollView } from "native-base";
 import Loading from "../loading";

@@ -6,8 +6,16 @@ import Signup from "../Auth/SignUp";
 import authStore from "../../Stores/authStore";
 import Icon from "react-native-vector-icons/FontAwesome";
 import AppIcon from "react-native-vector-icons/MaterialIcons";
-import Account from "../Dashboard/Account";
+import SetIcon from "react-native-vector-icons/AntDesign";
+import TraIcon from "react-native-vector-icons/MaterialCommunityIcons";
+import BenfIcon from "react-native-vector-icons/Entypo";
+import PeopIcon from "react-native-vector-icons/Ionicons";
+import Payment from "../Dashboard/Payment";
+import Transfer from "../Dashboard/Transfer";
 import Setting from "../Home/Setting";
+import DashboardCart from "../Dashboard/DashboardCart";
+import BeneficiaryList from "../Beneficiary/BeneficiaryList";
+import CreateBeneficiary from "../Beneficiary/CreateBeneficiary";
 
 const Tab = createBottomTabNavigator();
 
@@ -40,11 +48,54 @@ const BottomTab = () => {
       barStyle={{ backgroundColor: "#694fad" }}
     >
       <Tab.Screen
-        name="Account"
-        component={Account}
+        name="Dashboard"
+        component={DashboardCart}
         options={{
-          tabBarLabel: "Account",
-          tabBarIcon: ({ color, size }) => <AppIcon name="app-registration" />,
+          tabBarLabel: "...",
+          tabBarIcon: ({ color, size }) => (
+            <TraIcon name="dots-horizontal" color="grey" size={20} />
+          ),
+        }}
+      />
+
+      <Tab.Screen
+        name="Payment"
+        component={Payment}
+        options={{
+          tabBarLabel: "Payment",
+          tabBarIcon: ({ color, size }) => (
+            <AppIcon name="payment" color="grey" size={20} />
+          ),
+        }}
+      />
+      {/* <Tab.Screen
+        name="CreateBeneficiary"
+        component={CreateBeneficiary}
+        options={{
+          tabBarLabel: "Add",
+          tabBarIcon: ({ color, size }) => (
+            <BenfIcon name="plus" color="green" size={40} />
+          ),
+        }}
+      /> */}
+      <Tab.Screen
+        name="Transfer"
+        component={Transfer}
+        options={{
+          tabBarLabel: "Transfer",
+          tabBarIcon: ({ color, size }) => (
+            <TraIcon name="bank-transfer" color="lightblue" size={20} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="BenficiaryList"
+        component={BeneficiaryList}
+        options={{
+          tabBarLabel: "Benficiary",
+          tabBarIcon: ({ color, size }) => (
+            <PeopIcon name="people" color="grey" size={20} />
+          ),
         }}
       />
       <Tab.Screen
@@ -52,7 +103,9 @@ const BottomTab = () => {
         component={Setting}
         options={{
           tabBarLabel: "Setting",
-          tabBarIcon: ({ color, size }) => <AppIcon name="app-registration" />,
+          tabBarIcon: ({ color, size }) => (
+            <SetIcon name="setting" color="grey" size={20} />
+          ),
         }}
       />
     </Tab.Navigator>
