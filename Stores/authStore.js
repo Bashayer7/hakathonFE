@@ -38,7 +38,7 @@ class AuthStore {
     }
   };
   //a function that will allow user to log out from his user
-  logout = async () => {
+  signout = async () => {
     this.user = null;
     delete api.defaults.headers.common.Authorization;
     await AsyncStorage.removeItem("myToken");
@@ -54,7 +54,7 @@ class AuthStore {
         this.setUser(token);
       } else {
         alert("You're session has expired'. Please sign in again!");
-        this.logout();
+        this.signout();
       }
     }
   };

@@ -23,6 +23,11 @@ const Home = () => {
   const [user, setUser] = useState({
     username: "",
     password: "",
+    firstname: "",
+    lastname: "",
+    email: "",
+    civilId: "",
+    phonenumber: "",
   });
 
   const handlesubmit = () => {
