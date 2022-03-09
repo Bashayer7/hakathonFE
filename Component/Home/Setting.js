@@ -6,7 +6,7 @@ import authStore from "../../Stores/authStore";
 const Setting = () => {
   return (
     <View>
-      <TouchableOpacity onPress={authStore.logout}>
+      <TouchableOpacity onPress={authStore.signout}>
         <Text style={styles.logoText}>logout</Text>
       </TouchableOpacity>
     </View>

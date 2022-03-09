@@ -84,7 +84,7 @@ const Home = () => {
           underlineColorAndroid={"transparent"}
         />
 
-        <TouchableOpacity style={styles.btnEye}>
+        <TouchableOpacity style={styles.btnEye} onPress={handleEye}>
           <Icon
             name={"ios-eye-outline"}
             size={26}
