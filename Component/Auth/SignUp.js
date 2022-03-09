@@ -28,6 +28,7 @@ const Home = () => {
     email: "",
     civilId: "",
     phonenumber: "",
+    IBAN: "",
   });
 
   const handlesubmit = () => {

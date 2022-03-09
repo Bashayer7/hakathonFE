@@ -11,24 +11,52 @@ import {
   useToast,
   VStack,
 } from "native-base";
-// import beneficiaryStore
-import * as ImagePicker from "expo-image-picker";
+import { BeneficirayStore } from "../../Stores/BeneficiaryStore";
+//import * as ImagePicker from "expo-image-picker";
+
+import { yupResolver } from "@hookformresolvers/yup";
+import * as yup from "yup";
+
+//
+
 const CreateBeneficiary = ({ navigation }) => {
   // const [image, setImage] = useState(null);
   const [beneficiary, setBeneficiary] = useState({
-    name: "",
+    Fullname: "",
     IBAN: "",
+    Bankname: "",
+
     // image: null,
   });
 
-  const handleBeneficiaryName = (value) => {
+  const schema = yup.object().shape({
+    Fullname: yup.string().required("full name please"),
+    IBAN: yup.string().matches("^KWd{2}[A-Z]{4}[A-Z0-9]{22}$"),
+  });
+
+  function Createbeneficiary() {
+    const {
+      register,
+      handleSubmit,
+      formState: { errors },
+    } = useform({ resolver: yupResolver(schema) });
+  }
+
+  const onSubmit = () => {
+    console.log(" new beneficiary added succefully");
+  };
+
+  const handleBeneficiaryFullname = (value) => {
     setBeneficiary({ ...beneficiary, name: value });
   };
   const handleBeneficiaryIBAN = (value) => {
     setBeneficiary({ ...beneficiary, IBAN: value });
   };
+  const handleBeneficiarybankname = (value) => {
+    setBeneficiary({ ...beneficiary, bankname: value });
+  };
   const handleCreate = () => {
-    BeneficiaryStore.createBeneficiary(beneficiary, navigation);
+    BeneficirayStore.createBeneficiary(beneficiary, navigation);
   };
 
   return (
@@ -47,16 +75,20 @@ const CreateBeneficiary = ({ navigation }) => {
 
         <VStack space={3} mt="5">
           <FormControl>
-            <FormControl.Label>Trip Name</FormControl.Label>
-            <Input onChangeText={handleTripName} />
+            <FormControl.Label>BeneficiaryFullname</FormControl.Label>
+            <Input onChangeText={handleBeneficiaryFullname} />
           </FormControl>
           <FormControl>
-            <FormControl.Label>Trip Description</FormControl.Label>
-            <Input onChangeText={handleTripDescription} />
+            <FormControl.Label>Beneficiary IBAN</FormControl.Label>
+            <Input onChangeText={handleBeneficiaryIBAN} />
+          </FormControl>
+          <FormControl>
+            <FormControl.Label>Beneficiary Bankname</FormControl.Label>
+            <Input onChangeText={handleBeneficiarybankname} />
           </FormControl>
           {/* <Button onPress={pickImage}>Pick an image from camera roll</Button> */}
           <Button mt="2" style={styles.btn} onPress={handleCreate}>
-            Add
+            Add Beneficiary
           </Button>
           {/* {image && (
             <Image
@@ -70,4 +102,4 @@ const CreateBeneficiary = ({ navigation }) => {
   );
 };
 
-export default Beneficiary;
+export default CreateBeneficiary;

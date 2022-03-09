@@ -21,5 +21,9 @@ const BeneficiaryList = ({ navigation }) => {
 export default observer(BeneficiaryList);
 
 const styles = StyleSheet.create({
-  list: {},
+  list: {
+    container: {
+      width: "100%",
+    },
+  },
 });
