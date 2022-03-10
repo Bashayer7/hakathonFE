@@ -8,14 +8,13 @@ import Icon from "react-native-vector-icons/FontAwesome";
 import AppIcon from "react-native-vector-icons/MaterialIcons";
 import SetIcon from "react-native-vector-icons/AntDesign";
 import TraIcon from "react-native-vector-icons/MaterialCommunityIcons";
-import BenfIcon from "react-native-vector-icons/Entypo";
 import PeopIcon from "react-native-vector-icons/Ionicons";
 import Payment from "../Dashboard/Payment";
 import Transfer from "../Dashboard/Transfer";
 import Setting from "../Home/Setting";
 import DashboardCart from "../Dashboard/DashboardCart";
 import BeneficiaryList from "../Beneficiary/BeneficiaryList";
-import CreateBeneficiary from "../Beneficiary/CreateBeneficiary";
+import Account from "../Dashboard/Account";
 
 const Tab = createBottomTabNavigator();
 
@@ -42,7 +41,7 @@ const BottomTab = () => {
     </Tab.Navigator>
   ) : (
     <Tab.Navigator
-      initialRouteName="Account"
+      initialRouteName="Dashboard"
       activeColor="#f0edf6"
       inactiveColor="#3e2465"
       barStyle={{ backgroundColor: "#694fad" }}

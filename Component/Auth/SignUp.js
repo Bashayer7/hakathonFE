@@ -38,10 +38,7 @@ const Home = () => {
     authStore.signUp(user);
     // \\call sign in functioon from auth store
   };
-  let eyeCon = true;
-  const handleEye = () => {
-    eyeCon = eyeCon ? false : true;
-  };
+
   return (
     <ImageBackground
       source={{
@@ -90,7 +87,6 @@ const Home = () => {
           style={styles.input}
           placeholder={"Password"}
           onChangeText={(value) => setUser({ ...user, password: value })}
-          secureTextEntry={eyeCon}
           placeholderTextColor={"black"}
           underlineColorAndroid={"transparent"}
         />
