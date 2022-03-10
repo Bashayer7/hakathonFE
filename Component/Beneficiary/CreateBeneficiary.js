@@ -16,6 +16,10 @@ function Createbeneficiary() {
 
   return (
     <View>
+<<<<<<< HEAD
+=======
+      {" "}
+>>>>>>> benefiaciarylist
       class="container"
       <Form onSubmit={handleSubmit(onSubmit)}>
         <label> Beneficiary Name</label>

@@ -9,7 +9,7 @@ class BeneficiaryStore {
   constructor() {
     makeAutoObservable(this);
   }
-  beneficiary = [];
+  beneficiraies = [];
   loading = true;
   getBeneficiaries = async () => {
     try {

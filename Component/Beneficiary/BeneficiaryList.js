@@ -1,15 +1,14 @@
 import React from "react";
 import { observer } from "mobx-react";
 import { StyleSheet, Text, View } from "react-native";
-
-// import TripItem from "./TripItem";
 import { ScrollView } from "native-base";
 import Loading from "../loading";
+import beneficiaryStore from "../../Stores/BeneficiaryStore";
 
 const BeneficiaryList = ({ navigation }) => {
-  if (beneficiaryStore.loading) return <Loading />;
+  if (BeneficiaryList.loading) return <Loading />;
   const beneficiary = beneficiaryStore.beneficiaries.map((beneficiary) => (
-    <BeneficiaryItem
+    <BeneficiaryList
       key={beneficiary._id}
       beneficiary={beneficiary}
       navigation={navigation}
