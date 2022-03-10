@@ -11,8 +11,19 @@ import {
   useToast,
   VStack,
 } from "native-base";
+<<<<<<< HEAD
 // import beneficiaryStore
 // import * as ImagePicker from "expo-image-picker";
+=======
+import { BeneficirayStore } from "../../Stores/BeneficiaryStore";
+//import * as ImagePicker from "expo-image-picker";
+
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
+
+//
+
+>>>>>>> lastday
 const CreateBeneficiary = ({ navigation }) => {
   // const [image, setImage] = useState(null);
   const [beneficiary, setBeneficiary] = useState({
