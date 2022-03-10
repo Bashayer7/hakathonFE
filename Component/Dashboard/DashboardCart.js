@@ -10,7 +10,7 @@ const DashboardCart = ({ navigation }) => {
   console.log(Dashb);
   return (
     <View>
-      <Text style={styles.title}>My Dashboard</Text>
+      <Text style={styles.title}></Text>
       <ScrollView style={styles.container}>{Dashb}</ScrollView>
     </View>
   );
