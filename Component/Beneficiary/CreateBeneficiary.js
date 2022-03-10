@@ -14,7 +14,7 @@ import {
 import { BeneficirayStore } from "../../Stores/BeneficiaryStore";
 //import * as ImagePicker from "expo-image-picker";
 
-import { yupResolver } from "@hookformresolvers/yup";
+import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 
 //

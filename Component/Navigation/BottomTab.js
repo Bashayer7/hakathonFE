@@ -9,7 +9,8 @@ import AppIcon from "react-native-vector-icons/MaterialIcons";
 import Account from "../Dashboard/Account";
 import Setting from "../Home/Setting";
 import { TouchableOpacity } from "react-native-gesture-handler";
-
+import plus from "../../Icons/plus.png";
+import CreateBeneficiary from "../Beneficiary/CreateBeneficiary";
 const Tab = createBottomTabNavigator();
 const CustomTabBarButton = ({ children, onPress }) => (
   <TouchableOpacity
@@ -59,7 +60,7 @@ const BottomTab = () => {
           tabBarLabel: "Add",
           tabBarIcon: ({ focused }) => (
             <Image
-              source={require("plus.png")}
+              source={plus}
               resizeMode="contain"
               Style={{
                 width: 30,
