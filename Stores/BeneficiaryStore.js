@@ -26,18 +26,10 @@ class BeneficiaryStore {
   };
   createBeneficiary = async (beneficiary, navigation) => {
     try {
-      // const formData = new FormData();
-      // for (const key in beneficiary) formData.append(key, beneficiary[key]);
       const profile = profileStore.profiles.find(
         (profile) => profile.owner._id === authStore.user._id
       );
-      // const res = await axios.post(
-      //   `/${profile._id}`,
-      //   formData
-      // {
-      //   headers: { "Content-Type": "multipart/form-data" },
-      // }
-      // );
+
       const res = await api.post(`/profiles/`, beneficiary);
       this.beneficiary.push(res.data);
       profile.beneficiary.push(res.data);
