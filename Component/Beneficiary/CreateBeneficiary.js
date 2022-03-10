@@ -11,7 +11,6 @@ import {
   useToast,
   VStack,
 } from "native-base";
-<<<<<<< HEAD:Component/Beneficiary/CreateBeneficiary.js
 import { BeneficirayStore } from "../../Stores/BeneficiaryStore";
 //import * as ImagePicker from "expo-image-picker";
 
@@ -20,10 +19,6 @@ import * as yup from "yup";
 
 //
 
-=======
-// import beneficiaryStore
-// import * as ImagePicker from "expo-image-picker";
->>>>>>> wednesday:Component/Beneficiary/AddBeneficiary.js
 const CreateBeneficiary = ({ navigation }) => {
   // const [image, setImage] = useState(null);
   const [beneficiary, setBeneficiary] = useState({
