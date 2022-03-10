@@ -16,15 +16,11 @@ import DashboardCart from "../Dashboard/DashboardCart";
 import Payment from "../Dashboard/Payment";
 import Setting from "../Home/Setting";
 import { TouchableOpacity } from "react-native-gesture-handler";
-import plus from "../../Icons/plus.png";
 import blue from "../../Icons/blue.png";
 import CreateBeneficiary from "../Beneficiary/CreateBeneficiary";
-<<<<<<< HEAD
 import Setting from "../Home/Setting";
 import Account from "../Dashboard/Account";
-=======
 import { StyleSheet, View, Image } from "react-native";
->>>>>>> bottomtab
 
 const Tab = createBottomTabNavigator();
 const CustomTabBarButton = ({ children, onPress }) => (
