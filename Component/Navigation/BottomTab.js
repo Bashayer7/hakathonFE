@@ -11,6 +11,9 @@ import Setting from "../Home/Setting";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import plus from "../../Icons/plus.png";
 import CreateBeneficiary from "../Beneficiary/CreateBeneficiary";
+import Setting from "../Home/Setting";
+import Account from "../Dashboard/Account";
+
 const Tab = createBottomTabNavigator();
 const CustomTabBarButton = ({ children, onPress }) => (
   <TouchableOpacity
@@ -48,7 +51,7 @@ const BottomTab = () => {
     </Tab.Navigator>
   ) : (
     <Tab.Navigator
-      initialRouteName="Account"
+      initialRouteName="Dashboard"
       activeColor="#f0edf6"
       inactiveColor="#3e2465"
       barStyle={{ backgroundColor: "#694fad" }}

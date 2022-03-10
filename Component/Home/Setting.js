@@ -7,7 +7,9 @@ import IconFeather from "react-native-vector-icons/Feather";
 const Setting = () => {
   return (
     <View>
-      <Text style={styles.usernameText}>@{authStore.user.username}</Text>
+      <Text style={styles.usernameText}>
+        Signed as{authStore.user.username}
+      </Text>
       <Text style={styles.logoText}>
         Language
         <Icon

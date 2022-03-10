@@ -1,29 +1,55 @@
-import { StyleSheet, Text, View, ScrollView } from "react-native";
+import { StyleSheet, View, ImageBackground, Text } from "react-native";
 import React from "react";
-import Account from "./Account";
-import data from "./data";
 
-const DashboardCart = ({ navigation }) => {
-  const Dashb = data.map((data) => (
-    <Account key={data._id} data={data} navigation={navigation} />
-  ));
-  console.log(Dashb);
+const DashboardCart = () => {
   return (
-    <View>
-      <Text style={styles.title}>My Dashboard</Text>
-      <ScrollView style={styles.container}>{Dashb}</ScrollView>
-    </View>
+    <ImageBackground
+      source={{
+        uri: "https://cutewallpaper.org/21/white-ios-wallpaper/FREEIOS7-desktop-white-parallax-HD-iPhone-iPad-wallpaper.jpg",
+      }}
+      style={styles.container}
+    >
+      <View style={styles.cardsRed}>
+        <Text style={styles.text}>Accounts</Text>
+      </View>
+      <View style={styles.cardsRed}>
+        <Text style={styles.text}>Transfers</Text>
+      </View>
+      <View style={styles.cardsRed}>
+        <Text style={styles.text}>Payment</Text>
+      </View>
+      <View style={styles.cardsRed}>
+        <Text style={styles.text}>Beneficiary</Text>
+      </View>
+    </ImageBackground>
   );
 };
 
 export default DashboardCart;
 
 const styles = StyleSheet.create({
-  title: {
+  cardsRed: {
     textAlign: "center",
-    fontSize: 20,
+    alignItems: "center",
+    opacity: 0.8,
+    backgroundColor: "#413C69",
+    borderRadius: 10,
+    width: "48%",
+    height: "48.5%",
   },
   container: {
+    padding: 10,
     width: "100%",
+    height: "100%",
+    display: "flex",
+    flexWrap: "wrap",
+    gap: "15px",
+  },
+  text: {
+    color: "white",
+    fontSize: 30,
+    fontWeight: 900,
+    position: "absolute",
+    top: 150,
   },
 });
