@@ -7,19 +7,16 @@ import authStore from "../../Stores/authStore";
 import Icon from "react-native-vector-icons/FontAwesome";
 import AppIcon from "react-native-vector-icons/MaterialIcons";
 import StarIcon from "react-native-vector-icons/EvilIcons";
-// import addIcon from "react-native-vector-icons/";
 import TraIcon from "react-native-vector-icons/MaterialCommunityIcons";
 import Account from "../Dashboard/Account";
 import Transfer from "../Dashboard/Transfer";
 import Rewards from "../Dashboard/Rewards";
 import DashboardCart from "../Dashboard/DashboardCart";
 import Payment from "../Dashboard/Payment";
-import Setting from "../Home/Setting";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import blue from "../../Icons/blue.png";
 import CreateBeneficiary from "../Beneficiary/CreateBeneficiary";
 import Setting from "../Home/Setting";
-import Account from "../Dashboard/Account";
 import { StyleSheet, View, Image } from "react-native";
 
 const Tab = createBottomTabNavigator();
@@ -77,16 +74,6 @@ const BottomTab = () => {
       barStyle={{ backgroundColor: "#694fad" }}
     >
       <Tab.Screen
-        name="Account"
-        component={Account}
-        options={{
-          tabBarLabel: "Account",
-          tabBarIcon: ({ color, size }) => (
-            <AppIcon name="app-registration" color="grey" size={20} />
-          ),
-        }}
-      />
-      <Tab.Screen
         name="Dashboard"
         component={DashboardCart}
         options={{
@@ -96,6 +83,17 @@ const BottomTab = () => {
           ),
         }}
       />
+      <Tab.Screen
+        name="Account"
+        component={Account}
+        options={{
+          tabBarLabel: "Account",
+          tabBarIcon: ({ color, size }) => (
+            <AppIcon name="app-registration" color="grey" size={20} />
+          ),
+        }}
+      />
+
       <Tab.Screen
         name="Payment"
         component={Payment}

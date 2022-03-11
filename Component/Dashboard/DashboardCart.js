@@ -3,7 +3,6 @@ import React from "react";
 
 const DashboardCart = () => {
   return (
-<<<<<<< HEAD
     <ImageBackground
       source={{
         uri: "https://cutewallpaper.org/21/white-ios-wallpaper/FREEIOS7-desktop-white-parallax-HD-iPhone-iPad-wallpaper.jpg",
@@ -23,12 +22,6 @@ const DashboardCart = () => {
         <Text style={styles.text}>Beneficiary</Text>
       </View>
     </ImageBackground>
-=======
-    <View>
-      <Text style={styles.title}></Text>
-      <ScrollView style={styles.container}>{Dashb}</ScrollView>
-    </View>
->>>>>>> bottomtab
   );
 };
 

@@ -1,19 +1,12 @@
 import { StyleSheet, Text, View, Image } from "react-native";
-import React, { useState } from "react";
 import authStore from "../../Stores/authStore";
 
-const Account = ({ navigation }) => {
-  // const [Acc, setAcc] = useState({
-  //   name: "",
-  //   IBAN: "",
-  // });
-  // const handleCreate = () => {
-  //   AccountStore.createAccount(IBAN, navigation);
-  // };
+const Account = () => {
+  console.log(authStore.user.account);
   return (
     <View>
-      <Text>{authStore.user.Account}</Text>
-      <Text>{authStore.user.Amount}KD</Text>
+      <Text style={styles.text}>{authStore.user.account}</Text>
+      <Text style={styles.text}>{authStore.user.amount}KD</Text>
     </View>
   );
 };
@@ -25,5 +18,12 @@ const styles = StyleSheet.create({
     width: 80,
     height: 50,
     resizeMode: "contain",
+  },
+  text: {
+    textAlign: "center",
+    fontWeight: 300,
+    fontSize: 30,
+    color: "black",
+    opacity: 0.9,
   },
 });
